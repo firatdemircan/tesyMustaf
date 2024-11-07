@@ -2,7 +2,9 @@ package gov.mustafa.tesymustaf.controller;
 
 import gov.mustafa.tesymustaf.model.dto.KisiRequestDTOClass;
 import gov.mustafa.tesymustaf.model.dto.KisiRequestDTORecord;
+import gov.mustafa.tesymustaf.model.dto.KisiRequestUpdateRecord;
 import gov.mustafa.tesymustaf.service.KisiService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -64,11 +66,25 @@ public class TestController {
     }
 
 
-    @PostMapping
+    @PostMapping("saveRecord")
     public String saveRecord(@RequestBody KisiRequestDTORecord kisiRequestDTORecord) {
-
         kisiService.saveRecord(kisiRequestDTORecord);
-
+        return "Recordla Kaydettim";
     }
+
+    @PostMapping("saveRecordList")
+    public String saveRecordList(@RequestBody List<KisiRequestDTORecord> kisiRequestDTORecords) {
+        kisiService.saveRecordList(kisiRequestDTORecords);
+        return "Hepsini Recordla Kaydettim";
+    }
+
+
+    @PostMapping("updateRecord")
+    public String updateRecord(@RequestBody @Valid KisiRequestUpdateRecord updateRecord) {
+        kisiService.update(updateRecord);
+        return "Güncelleme Başarılı";
+    }
+
+
 
 }

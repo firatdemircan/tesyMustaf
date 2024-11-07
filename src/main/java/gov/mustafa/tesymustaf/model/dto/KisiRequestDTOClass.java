@@ -10,8 +10,8 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class KisiRequestDTOClass {
-    private String kisiAdi;
-    private String kisiSoyadi;
-    private Integer kisiYas;
+    private String ad;
+    private String soyad;
+    private Integer yas;
     private String unvan;
 }
